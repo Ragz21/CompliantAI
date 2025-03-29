@@ -12,7 +12,7 @@ def main():
 
     # # Running RAG
     # rag_system = RAG(config_path="config/config.yaml")
-    # folder_path = "/Users/ragz/Library/Mobile Documents/com~apple~CloudDocs/Freelance/AIROI/AI/output copy/"
+    # folder_path = "/Users/ragz/Library/Mobile Documents/com~apple~CloudDocs/AI/output copy/"
     # rag_system.index_documents(folder=folder_path, use_esg=True)
     # query = "What are the requirements of 301-2"
     # result = rag_system.answer_query(query, use_esg=True, k=3)
