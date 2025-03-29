@@ -48,3 +48,17 @@ class ESG(BaseLLM):
         answer = result.get("answer", "I'm sorry, I couldn't retrieve ESG information for your follow-up query.")
         logger.info("Follow-up answer: %s", answer)
         return answer
+
+    def summarize_text(self, text: str) -> str:
+        """
+        Generate a summary for a given text chunk.
+        """
+        final_prompt = f"{self.system_prompt}\n\nSummarize the following text:\n\n{text}"
+        return self.generate(final_prompt)
+    
+    def mini_report(self, text: str) -> str:
+        """
+        Generate a  mini-report for a given text chunk.
+        """
+        final_prompt = f"{self.system_prompt}\n\nGenerate mini-report for the following text:\n\n{text}"
+        return self.generate(final_prompt)
