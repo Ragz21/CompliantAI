@@ -2,7 +2,7 @@ from core.llm.base import BaseLLM
 import os
 import logging
 from core.utils.documents_processor import DocumentProcessor
-from core.db.vector_db import ESGVectorDB, KnowhereDB
+from core.db.vector_db import EsgDB
 import ollama
 
 logger = logging.getLogger(__name__)
@@ -13,14 +13,14 @@ class RAG(BaseLLM):
     def __init__(self, config_path: str = "config/config.yaml"):
         super().__init__(config_path=config_path)
         self.system_prompt = self._get_system_prompt("config/prompts/sorcerer_supreme.txt")
-        self.esg_vector_db = ESGVectorDB(config_path=config_path)
+        self.esg_vector_db = EsgDB(config_path=config_path)
         # TODO: other DB
         self.embedding_model = self.config.get("document_processor", {}).get("embedding_model", "nomic-embed-text")
 
     def index_documents(self, folder: str, use_esg: bool = True):
         """
         Process all text files in a folder and insert their enriched data into
-        ESGVectorDB if use_esg is True, or KnowhereDB otherwise.
+        EsgDB if use_esg is True, or KnowhereDB otherwise.
         """        
         dp = DocumentProcessor(config_path="config/config.yaml")
         for filename in os.listdir(folder):
@@ -42,11 +42,11 @@ class RAG(BaseLLM):
                     for chunk in enriched_chunks:
                         # TODO: other DB
                         pass
-                logger.info(f"Indexed file {filename} into {'ESGVectorDB' if use_esg else 'KnowhereDB'}.")
+                logger.info(f"Indexed file {filename} into {'EsgDB' if use_esg else 'KnowhereDB'}.")
 
     def answer_query(self, query: str, use_esg: bool = True, k: int = 5) -> dict:
         """
-        Query the correct database (ESGVectorDB or KnowhereDB) based on the flag,
+        Query the correct database (EsgDB or KnowhereDB) based on the flag,
         then return the retrieved context.
         """
         query_embedding = self.generate_embedding(query, self.embedding_model)

@@ -12,7 +12,7 @@ class ESG(BaseLLM):
     def __init__(self, config_path: str = "config/config.yaml"):
         super().__init__(config_path=config_path)
         self.system_prompt = self._get_system_prompt("config/prompts/esg.txt")
-        self.sorcerer_supreme = RAG(config_path=config_path)
+        self.rag = RAG(config_path=config_path)
         logger.info("ESG initialized.")
         
     def answer_query(self, query: str) -> str:
@@ -25,7 +25,7 @@ class ESG(BaseLLM):
                             "Could you please provide more details regarding your ESG standards question?")
             logger.info("Query too brief; returning clarification prompt.")
             return clarification
-        result = self.sorcerer_supreme.answer_query(query, use_esg=True, k=5)
+        result = self.rag.answer_query(query, use_esg=True, k=5)
         context = result.get("context", "")
         final_prompt = (
             f"{self.system_prompt}\n\n"
@@ -44,13 +44,7 @@ class ESG(BaseLLM):
         Process a follow-up question.
         """
         logger.info("Received follow-up question: %s", followup)
-        result = self.sorcerer_supreme.answer_query(followup, use_esg=True, k=5)
+        result = self.rag.answer_query(followup, use_esg=True, k=5)
         answer = result.get("answer", "I'm sorry, I couldn't retrieve ESG information for your follow-up query.")
         logger.info("Follow-up answer: %s", answer)
         return answer
-
-if __name__ == "__main__":
-    lt = ESG(config_path="config/config.yaml")
-    user_query = input("Enter your ESG query: ")
-    response = lt.answer_query(user_query)
-    print("Response:", response)
