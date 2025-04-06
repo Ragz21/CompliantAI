@@ -27,6 +27,21 @@ databases:
     index_path: ./databases/esg_db.index
     mapping_path: ./databases/esg_db_mapping.json
 
+  esg_graph_db:
+    uri: bolt://localhost:7687
+    user: neo4j
+    password: neo4j
+  
+  finra_graph_db:
+    uri: bolt://localhost:7687
+    user: neo4j
+    password: neo4j
+  
+  gdpr_graph_db:
+    uri: bolt://localhost:7687
+    user: neo4j
+    password: neo4j
+
 document_processor:
   embedding_model: nomic-embed-text
   chunking_profiles:

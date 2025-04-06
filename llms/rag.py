@@ -2,7 +2,7 @@ from core.llm.base import BaseLLM
 import os
 import logging
 from core.utils.documents_processor import DocumentProcessor
-from core.db.vector_db import EsgDB
+from core.db.vector_db import EsgDB, EsgGraphDB
 import ollama
 
 logger = logging.getLogger(__name__)
@@ -40,8 +40,12 @@ class RAG(BaseLLM):
                         )
                 else:
                     for chunk in enriched_chunks:
-                        # TODO: other DB
+                        # TODO: other DBs
                         pass
+                graph_triples = dp.process_document_for_graph(content, doc_type="esg")
+                if graph_triples:
+                    esg_graph_db = EsgGraphDB(config_path="config/config.yaml")
+                    esg_graph_db.insert_triples(graph_triples)
                 logger.info(f"Indexed file {filename} into {'EsgDB' if use_esg else 'KnowhereDB'}.")
 
     def answer_query(self, query: str, use_esg: bool = True, k: int = 5) -> dict:
