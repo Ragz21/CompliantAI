@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CompliantAI - Document Analysis</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    .document-header-line {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 1rem;
+    }
+
+    .document-header-line .document-name {
+      flex-grow: 1;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .search-controls {
+      margin-bottom: 1rem;
+    }
+
+    .search-box {
+      position: relative;
+      max-width: 300px;
+    }
+
+    .search-input {
+      width: 100%;
+      padding: 0.5rem 2rem 0.5rem 1rem;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      font-size: 0.9rem;
+    }
+
+    .search-icon {
+      position: absolute;
+      right: 0.75rem;
+      top: 50%;
+      transform: translateY(-50%);
+      color: #666;
+    }
+
+    .pagination {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 1rem;
+      margin-top: 1rem;
+      padding: 1rem 0;
+    }
+
+    .pagination-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.5rem 1rem;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      background: white;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .pagination-btn:hover:not(:disabled) {
+      background: #f0f0f0;
+    }
+
+    .pagination-btn:disabled {
+      opacity: 0.5;
+      cursor: not-allowed;
+    }
+
+    .pagination-info {
+      font-size: 0.9rem;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1><i class="fas fa-shield-alt"></i> CompliantAI</h1>
+      <p>AI-powered document compliance analysis</p>
+    </header>
+
+    <main>
+      <section class="upload-section">
+        <h2>Upload Document</h2>
+        <div class="upload-area" id="drop-area">
+          <i class="fas fa-cloud-upload-alt"></i>
+          <p>Drag & drop your PDF file here or</p>
+          <label for="file-input" class="upload-btn">Browse Files</label>
+          <input type="file" id="file-input" accept=".pdf" hidden>
+        </div>
+        <div id="upload-status"></div>
+      </section>
+
+      <section class="documents-section">
+        <h2>Your Documents</h2>
+        <div class="documents-list" id="documents-list">
+          <!-- Documents will be listed here -->
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <p>&copy; 2023 CompliantAI. All rights reserved.</p>
+    </footer>
+  </div>
+
+  <!-- Document Item Template -->
+  <template id="document-item-template">
+    <div class="document-item">
+      <div class="document-header-line">
+        <i class="fas fa-file-pdf"></i>
+        <span class="document-name"></span>
+      </div>
+      <div class="document-actions">
+        <div class="tag-selector">
+          <select multiple class="tag-select">
+            <option value="None">None</option>
+            <option value="GDPR">GDPR</option>
+            <option value="ESG">ESG</option>
+            <option value="SASB">SASB</option>
+            <option value="HIPAA">HIPAA</option>
+            <option value="FINRA">FINRA</option>
+          </select>
+        </div>
+        <button class="analyze-btn"><i class="fas fa-search"></i> Analyze</button>
+      </div>
+    </div>
+  </template>
+
+  <!-- Document Viewer Modal -->
+  <div id="documentModal" class="modal">
+    <div class="modal-content">
+      <span class="close-modal">&times;</span>
+      <iframe id="documentViewer" width="100%" height="100%"></iframe>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      const dropArea = document.getElementById('drop-area');
+      const fileInput = document.getElementById('file-input');
+      const uploadStatus = document.getElementById('upload-status');
+      const documentsList = document.getElementById('documents-list');
+      const documentTemplate = document.getElementById('document-item-template');
+      const documentModal = document.getElementById('documentModal');
+      const documentViewer = document.getElementById('documentViewer');
+      const closeModal = document.querySelector('.close-modal');
+
+      // Modal handling
+      closeModal.onclick = function() {
+        documentModal.style.display = "none";
+      }
+
+      window.onclick = function(event) {
+        if (event.target == documentModal) {
+          documentModal.style.display = "none";
+        }
+      }
+
+      function showDocument(filename) {
+        documentViewer.src = `/input_data/${encodeURIComponent(filename)}`;
+        documentModal.style.display = "block";
+      }
+
+      // Load existing documents
+      loadDocuments();
+
+      // Prevent default drag behaviors
+      ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+        dropArea.addEventListener(eventName, preventDefaults, false);
+        document.body.addEventListener(eventName, preventDefaults, false);
+      });
+
+      // Highlight drop zone when item is dragged over it
+      ['dragenter', 'dragover'].forEach(eventName => {
+        dropArea.addEventListener(eventName, highlight, false);
+      });
+
+      ['dragleave', 'drop'].forEach(eventName => {
+        dropArea.addEventListener(eventName, unhighlight, false);
+      });
+
+      // Handle dropped files
+      dropArea.addEventListener('drop', handleDrop, false);
+
+      // Handle file input change
+      fileInput.addEventListener('change', function() {
+        handleFiles(this.files);
+      });
+
+      function preventDefaults(e) {
+        e.preventDefault();
+        e.stopPropagation();
+      }
+
+      function highlight(e) {
+        dropArea.classList.add('highlight');
+      }
+
+      function unhighlight(e) {
+        dropArea.classList.remove('highlight');
+      }
+
+      function handleDrop(e) {
+        const dt = e.dataTransfer;
+        const files = dt.files;
+        handleFiles(files);
+      }
+
+      function handleFiles(files) {
+        if (files.length === 0) return;
+        
+        const file = files[0];
+        if (file.type !== 'application/pdf') {
+          showUploadStatus('Please upload a PDF file.', 'error');
+          return;
+        }
+
+        uploadFile(file);
+      }
+
+      function uploadFile(file) {
+        const formData = new FormData();
+        formData.append('file', file);
+
+        showUploadStatus('Uploading...', 'info');
+
+        fetch('/upload', {
+          method: 'POST',
+          body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+          if (data.success) {
+            showUploadStatus('File uploaded successfully!', 'success');
+            loadDocuments(); // Reload the documents list
+          } else {
+            showUploadStatus(data.error || 'Upload failed.', 'error');
+          }
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          showUploadStatus('Upload failed. Please try again.', 'error');
+        });
+      }
+
+      function showUploadStatus(message, type) {
+        uploadStatus.textContent = message;
+        uploadStatus.className = `upload-status ${type}`;
+        
+        // Clear the status after 3 seconds
+        setTimeout(() => {
+          uploadStatus.textContent = '';
+          uploadStatus.className = 'upload-status';
+        }, 3000);
+      }
+
+      function loadDocuments() {
+        fetch('/files')
+          .then(response => response.json())
+          .then(files => {
+            documentsList.innerHTML = '';
+            
+            files.forEach(file => {
+              const documentItem = documentTemplate.content.cloneNode(true);
+              const documentName = documentItem.querySelector('.document-name');
+              const tagSelect = documentItem.querySelector('.tag-select');
+              const analyzeBtn = documentItem.querySelector('.analyze-btn');
+              
+              documentName.textContent = file.name;
+              documentName.style.cursor = 'pointer';
+              documentName.onclick = () => showDocument(file.name);
+              
+              // Set the selected tags
+              if (file.tags && Array.isArray(file.tags)) {
+                file.tags.forEach(tag => {
+                  const option = tagSelect.querySelector(`option[value="${tag}"]`);
+                  if (option) option.selected = true;
+                });
+              }
+              
+              // Handle tag changes
+              tagSelect.addEventListener('change', function() {
+                const selectedTags = Array.from(this.selectedOptions).map(opt => opt.value);
+                updateTags(file.name, selectedTags);
+              });
+              
+              // Handle analyze button click
+              analyzeBtn.addEventListener('click', function() {
+                const selectedTags = Array.from(tagSelect.selectedOptions).map(opt => opt.value);
+                analyzeDocument(file.name, selectedTags);
+              });
+              
+              documentsList.appendChild(documentItem);
+            });
+          })
+          .catch(error => {
+            console.error('Error loading documents:', error);
+            showUploadStatus('Error loading documents. Please refresh the page.', 'error');
+          });
+      }
+
+      function updateTags(fileName, tags) {
+        fetch('/update_tag', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            file_name: fileName,
+            tags: tags
+          }),
+        })
+        .then(response => response.json())
+        .then(data => {
+          if (data.success) {
+            console.log('Tags updated successfully');
+            showUploadStatus('Tags updated successfully', 'success');
+          } else {
+            console.error('Failed to update tags:', data.error);
+            showUploadStatus('Failed to update tags', 'error');
+          }
+        })
+        .catch(error => {
+          console.error('Error updating tags:', error);
+          showUploadStatus('Error updating tags', 'error');
+        });
+      }
+
+      function analyzeDocument(fileName, tags) {
+        // Filter out 'None' tag if it's the only one selected
+        const filteredTags = tags.filter(tag => tag !== 'None');
+        if (filteredTags.length === 0) {
+          showUploadStatus('Please select at least one valid tag.', 'error');
+          return;
+        }
+        
+        // Show loading status
+        showUploadStatus('Analyzing document...', 'info');
+        
+        // Send analysis request
+        fetch('/analyze', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            file_name: fileName,
+            tags: filteredTags
+          }),
+        })
+        .then(response => response.json())
+        .then(data => {
+          if (data.success) {
+            showUploadStatus('Analysis completed successfully!', 'success');
+            // Redirect to analysis page after a short delay
+            setTimeout(() => {
+              window.location.href = '/analysis';
+            }, 1000);
+          } else {
+            throw new Error(data.error || 'Analysis failed');
+          }
+        })
+        .catch(error => {
+          console.error('Error during analysis:', error);
+          showUploadStatus('Analysis failed. Please try again.', 'error');
+        });
+      }
+    });
+  </script>
+</body>
+</html>
