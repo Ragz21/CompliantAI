@@ -1,0 +1,607 @@
+GRI 308: Supplier Environmental
+Assessment 2016
+
+EFFECTIVE DATE: 1 JULY 2018
+
+TOPIC STANDARD
+
+308
+
+GRI 308: Supplier Environmental Assessment
+2016
+Topic Standard
+Effective Date
+This Standard is effective for reports or other materials published on or after 1 July 2018
+Responsibility
+This Standard is issued by the Global Sustainability Standards Board (GSSB). Any feedback on the GRI Standards
+can be submitted to gssbsecretariat@globalreporting.org for the consideration of the GSSB.
+Due Process
+This Standard was developed in the public interest and in accordance with the requirements of the GSSB Due
+Process Protocol. It has been developed using multi-stakeholder expertise, and with regard to authoritative
+intergovernmental instruments and widely held expectations of organizations relating to social, environmental, and
+economic responsibilities.
+Legal Liability
+This document, designed to promote sustainability reporting, has been developed by the Global Sustainability
+Standards Board (GSSB) through a unique multi-stakeholder consultative process involving representatives from
+organizations and report information users from around the world. While the GRI Board of Directors and GSSB
+encourage the use of the GRI Sustainability Reporting Standards (GRI Standards) and related Interpretations by all
+organizations, the preparation and publication of reports based fully or partially on the GRI Standards and related
+Interpretations are the full responsibility of those producing them. Neither the GRI Board of Directors, GSSB, nor
+Stichting Global Reporting Initiative (GRI) can assume responsibility for any consequences or damages resulting
+directly or indirectly from the use of the GRI Standards and related Interpretations in the preparation of reports, or the
+use of reports based on the GRI Standards and related Interpretations.
+Copyright and trademark notice
+This document is copyright-protected by Stichting Global Reporting Initiative (GRI). The reproduction and distribution
+of this document for information and/or use in preparing a sustainability report is permitted without prior permission
+from GRI. However, neither this document nor any extract from it may be reproduced, stored, translated, or transferred
+in any form or by any means (electronic, mechanical, photocopied, recorded, or otherwise) for any other purpose
+without prior written permission from GRI.
+Global Reporting Initiative, GRI and logo, GSSB and logo, and GRI Sustainability Reporting Standards (GRI
+Standards) and logo are trademarks of Stichting Global Reporting Initiative.
+© 2022 GRI. All rights reserved.
+ISBN 978-90-8866-111-2
+
+3
+
+GRI 308: Supplier Environmental Assessment 2016
+
+Content
+Introduction
+
+4
+
+1. Topic management disclosures
+
+7
+
+2. Topic disclosures
+
+8
+
+Disclosure 308-1 New suppliers that were screened using environmental criteria
+
+8
+
+Disclosure 308-2 Negative environmental impacts in the supply chain and actions
+taken
+
+9
+
+Glossary
+
+10
+
+Bibliography
+
+13
+
+4
+
+GRI 308: Supplier Environmental Assessment 2016
+
+Introduction
+GRI 308: Supplier Environmental Assessment 2016 contains disclosures for organizations to report information about
+their environmental impacts in their supply chain, and how they manage these impacts. The disclosures enable an
+organization to provide information on its approach to preventing and mitigating negative environmental impacts in its
+supply chain.
+The Standard is structured as follows:
+• Section 1 contains a requirement, which provides information about how the organization manages its
+environmental impacts in its supply chain.
+• Section 2 contains two disclosures, which provide information about the organization’s supplier assessment and
+environmental impacts in its supply chain.
+• The Glossary contains defined terms with a specific meaning when used in the GRI Standards. The terms are
+underlined in the text of the GRI Standards and linked to the definitions.
+• The Bibliography lists authoritative intergovernmental instruments used in developing this Standard.
+The rest of the Introduction section provides a background on the topic, an overview of the system of GRI Standards
+and further information on using this Standard.
+
+Background on the topic
+This Standard addresses the topic of supplier environmental assessment.
+An organization may be involved with negative environmental impacts either through its own activities or as a result of
+its business relationships with other parties. Due diligence is expected of an organization in order to prevent, mitigate,
+and address actual and potential negative environmental impacts in the supply chain. These include negative
+impacts the organization either causes or contributes to, or that are directly linked to its operations, products, or
+services by its relationship with a supplier.
+These concepts are covered in key instruments of the United Nations: see Bibliography.
+Suppliers can be assessed for a range of environmental criteria such as impacts related to energy, water, or
+emissions. Some of these criteria are covered in other GRI Topic Standards (e.g., GRI 302: Energy 2016, GRI 303:
+Water and Effluents 2018, GRI 305: Emissions 2016).
+
+System of GRI Standards
+This Standard is part of the GRI Sustainability Reporting Standards (GRI Standards). The GRI Standards enable an
+organization to report information about its most significant impacts on the economy, environment, and people,
+including impacts on their human rights, and how it manages these impacts.
+The GRI Standards are structured as a system of interrelated standards that are organized into three series: GRI
+Universal Standards, GRI Sector Standards, and GRI Topic Standards (see Figure 1 in this Standard).
+Universal Standards: GRI 1, GRI 2 and GRI 3
+GRI 1: Foundation 2021 specifies the requirements that the organization must comply with to report in accordance
+with the GRI Standards. The organization begins using the GRI Standards by consulting GRI 1.
+GRI 2: General Disclosures 2021 contains disclosures that the organization uses to provide information about its
+reporting practices and other organizational details, such as its activities, governance, and policies.
+GRI 3: Material Topics 2021 provides guidance on how to determine material topics. It also contains disclosures that
+the organization uses to report information about its process of determining material topics, its list of material topics,
+and how it manages each topic.
+Sector Standards
+The Sector Standards provide information for organizations about their likely material topics. The organization uses
+the Sector Standards that apply to its sectors when determining its material topics and when determining what to
+report for each material topic.
+Topic Standards
+The Topic Standards contain disclosures that the organization uses to report information about its impacts in relation
+to particular topics. The organization uses the Topic Standards according to the list of material topics it has
+determined using GRI 3.
+
+5
+
+GRI 308: Supplier Environmental Assessment 2016
+
+Figure 1. GRI Standards: Universal, Sector and Topic Standards
+
+GRI Standards
+
+Universal Standards
+
+Sector Standards
+
+Topic Standards
+
+Use the Sector Standards that
+apply to your sectors
+
+Select Topic Standards to report
+specific information on your
+material topics
+
+Requirements and
+principles for using the
+GRI Standards
+
+Disclosures about the
+reporting organization
+
+Disclosures and
+guidance about the
+organization's material
+topics
+
+Apply all three Universal
+Standards to your reporting
+
+Using this Standard
+This Standard can be used by any organization – regardless of size, type, sector, geographic location, or reporting
+experience – to report information about its environmental impacts in its supply chain. In addition to this Standard,
+disclosures that relate to this topic can be found in GRI 414: Supplier Social Assessment 2016.
+If the reporting organization has determined both supplier environmental assessment and supplier social
+assessment to be material, it can combine its disclosures for GRI 308 and GRI 414. For example, if the organization
+uses the same approach for managing both topics, it can provide one combined explanation of how the organization
+manages both topics.
+An organization reporting in accordance with the GRI Standards is required to report the following disclosures if it has
+determined supplier environmental assessment to be a material topic:
+• Disclosure 3-3 in GRI 3: Material Topics 2021 (see clause 1.1 in this Standard);
+• Any disclosures from this Topic Standard that are relevant to the organization’s environmental impacts in its
+supply chain (Disclosure 308-1 through Disclosure 308-2).
+See Requirements 4 and 5 in GRI 1: Foundation 2021.
+Reasons for omission are permitted for these disclosures.
+If the organization cannot comply with a disclosure or with a requirement in a disclosure (e.g., because the required
+information is confidential or subject to legal prohibitions), the organization is required to specify the disclosure or the
+requirement it cannot comply with, and provide a reason for omission together with an explanation in the GRI content
+index. See Requirement 6 in GRI 1: Foundation 2021 for more information on reasons for omission.
+If the organization cannot report the required information about an item specified in a disclosure because the item
+(e.g., committee, policy, practice, process) does not exist, it can comply with the requirement by reporting this to be the
+case. The organization can explain the reasons for not having this item, or describe any plans to develop it. The
+disclosure does not require the organization to implement the item (e.g., developing a policy), but to report that the
+item does not exist.
+
+6
+
+GRI 308: Supplier Environmental Assessment 2016
+
+If the organization intends to publish a standalone sustainability report, it does not need to repeat information that it
+has already reported publicly elsewhere, such as on web pages or in its annual report. In such a case, the
+organization can report a required disclosure by providing a reference in the GRI content index as to where this
+information can be found (e.g., by providing a link to the web page or citing the page in the annual report where the
+information has been published).
+Requirements, guidance and defined terms
+The following apply throughout this Standard:
+Requirements are presented in bold font and indicated by the word 'shall'. An organization must comply with
+requirements to report in accordance with the GRI Standards.
+Requirements may be accompanied by guidance.
+Guidance includes background information, explanations, and examples to help the organization better understand
+the requirements. The organization is not required to comply with guidance.
+The Standards may also include recommendations. These are cases where a particular course of action is
+encouraged but not required.
+The word ‘should’ indicates a recommendation, and the word ‘can’ indicates a possibility or option.
+Defined terms are underlined in the text of the GRI Standards and linked to their definitions in the Glossary. The
+organization is required to apply the definitions in the Glossary.
+
+7
+
+GRI 308: Supplier Environmental Assessment 2016
+
+1. Topic management disclosures
+An organization reporting in accordance with the GRI Standards is required to report how it manages each of its
+material topics.
+An organization that has determined supplier environmental assessment to be a material topic is required to report
+how it manages the topic using Disclosure 3-3 in GRI 3: Material Topics 2021 (see clause 1.1 in this section).
+This section is therefore designed to supplement – and not replace – Disclosure 3-3 in GRI 3.
+REQUIREMENTS
+
+GUIDANCE
+
+1.1
+
+The reporting organization shall report how it manages supplier environmental
+assessment using Disclosure 3-3 in GRI 3: Material Topics 2021.
+
+The reporting organization can also disclose:
+• the systems used to screen new suppliers using environmental criteria, and a list of the
+environmental criteria used to screen new suppliers;
+• processes used, such as due diligence, to identify and assess significant actual and
+potential negative environmental impacts in the supply chain;
+• how the organization identifies and prioritizes suppliers for assessment of environmental
+impacts;
+• actions taken to address the significant actual and potential negative environmental impacts
+identified in the supply chain, and whether the actions are intended to prevent, mitigate, or
+remediate the impacts;
+• how expectations are established and defined in contracts with suppliers to promote the
+prevention, mitigation, and remediation of significant actual and potential negative
+environmental impacts, including targets and objectives;
+• whether suppliers are incentivized and rewarded for the prevention, mitigation, and
+remediation of significant actual and potential negative environmental impacts;
+• practices for assessing and auditing suppliers and their products and services using
+environmental criteria;
+• a list of the type, system, scope, frequency, current implementation of assessment and audit,
+and which parts of the supply chain have been certified and audited;
+• the systems in place to assess the potential negative impacts of terminating a relationship
+with a supplier as a result of assessing the supplier for environmental impacts, and the
+organization’s strategy to mitigate those impacts.
+Environmental criteria or assessments of suppliers for environmental impacts can include the
+topics covered in other GRI Topic Standards (e.g., GRI 302: Energy 2016, GRI 303: Water and
+Eflluents 2018, GRI 305: Emissions 2016).
+Negative impacts can include those that are either caused or contributed to by an organization,
+or that are directly linked to its operations, products, or services by its relationship with a
+supplier.
+Assessments can be informed by audits, contractual reviews, two-way engagement, and
+complaint and grievance mechanisms.
+Actions taken to address environmental impacts can include changing an organization’s
+procurement practices, adjusting performance expectations, capacity building, training, changes
+to processes, as well as terminating supplier relationships.
+Assessments and audits of suppliers and their products and services using environmental
+criteria can be undertaken by an organization, by a second party, or by a third party.
+
+8
+
+GRI 308: Supplier Environmental Assessment 2016
+
+2. Topic disclosures
+Disclosure 308-1 New suppliers that were screened
+using environmental criteria
+REQUIREMENTS
+
+The reporting organization shall report the following information:
+a.
+
+GUIDANCE
+
+Percentage of new suppliers that were screened using environmental criteria.
+
+Guidance for Disclosure 308-1
+Environmental criteria can include the topics covered in other GRI Topic Standards (e.g., GRI
+302: Energy 2016, GRI 303: Water and Effluents 2018, GRI 305: Emissions 2016)
+Background
+This disclosure informs stakeholders about the percentage of suppliers selected or contracted
+subject to due diligence processes for environmental impacts.
+An organization is expected to initiate due diligence as early as possible in the development of a
+new relationship with a supplier.
+Impacts may be prevented or mitigated at the stage of structuring contracts or other agreements,
+as well as via ongoing collaboration with suppliers.
+
+9
+
+GRI 308: Supplier Environmental Assessment 2016
+
+Disclosure 308-2 Negative environmental impacts in
+the supply chain and actions taken
+REQUIREMENTS
+
+RECOMMENDATIONS
+
+The reporting organization shall report the following information:
+a.
+
+Number of suppliers assessed for environmental impacts.
+
+b.
+
+Number of suppliers identified as having significant actual and potential negative
+environmental impacts.
+
+c.
+
+Significant actual and potential negative environmental impacts identified in the supply
+chain.
+
+d.
+
+Percentage of suppliers identified as having significant actual and potential negative
+environmental impacts with which improvements were agreed upon as a result of
+assessment.
+
+e.
+
+Percentage of suppliers identified as having significant actual and potential negative
+environmental impacts with which relationships were terminated as a result of
+assessment, and why.
+
+2.1
+
+When compiling the information specified in Disclosure 308-2, the reporting organization
+should, where it provides appropriate context on significant impacts, provide a
+breakdown of the information by:
+2.1.1
+2.1.2
+
+GUIDANCE
+
+the location of the supplier;
+the significant actual and potential negative environmental impact.
+
+Guidance for Disclosure 308-2
+Negative impacts include those that are either caused or contributed to by an organization, or
+that are directly linked to its operations, products, or services by its relationship with a supplier.
+Assessments for environmental impacts can include the topics covered in other GRI Topic
+Standards (e.g., GRI 302: Energy 2016, GRI 303: Water and Effluents 2018, GRI 305: Emissions
+2016).
+Assessments can be made against agreed performance expectations that are set and
+communicated to the suppliers prior to the assessment.
+Assessments can be informed by audits, contractual reviews, two-way engagement, and
+complaint and grievance mechanisms.
+Improvements can include changing an organization’s procurement practices, the adjustment of
+performance expectations, capacity building, training, and changes to processes.
+Background
+This disclosure informs stakeholders about an organization’s awareness of significant actual
+and potential negative environmental impacts in the supply chain.
+
+10
+
+GRI 308: Supplier Environmental Assessment 2016
+
+Glossary
+This glossary provides definitions for terms used in this Standard. The organization is required to apply these
+definitions when using the GRI Standards.
+The definitions included in this glossary may contain terms that are further defined in the complete GRI Standards
+Glossary. All defined terms are underlined. If a term is not defined in this glossary or in the complete GRI Standards
+Glossary, definitions that are commonly used and understood apply.
+business partner
+entity with which the organization has some form of direct and formal engagement for the
+purpose of meeting its business objectives
+Source:
+
+Shift and Mazars LLP, UN Guiding Principles Reporting Framework, 2015; modified
+
+Examples: affiliates, business-to-business customers, clients, first-tier suppliers, franchisees,
+joint venture partners, investee companies in which the organization has a
+shareholding position
+Note:
+
+Business partners do not include subsidiaries and affiliates that the organization
+controls.
+
+business relationships
+relationships that the organization has with business partners, with entities in its value chain
+including those beyond the first tier, and with any other entities directly linked to its operations,
+products, or services
+Source:
+
+United Nations (UN), Guiding Principles on Business and Human Rights:
+Implementing the United Nations “Protect, Respect and Remedy” Framework, 2011;
+modified
+
+Note:
+
+Examples of other entities directly linked to the organization’s operations, products,
+or services are a non-governmental organization with which the organization
+delivers support to a local community or state security forces that protect the
+organization’s facilities.
+
+due diligence
+process to identify, prevent, mitigate, and account for how the organization addresses its actual
+and potential negative impacts
+Source:
+
+Organisation for Economic Co-operation and Development (OECD), OECD
+Guidelines for Multinational Enterprises, 2011; modified
+United Nations (UN), Guiding Principles on Business and Human Rights:
+Implementing the United Nations “Protect, Respect and Remedy” Framework, 2011;
+modified
+
+Note:
+
+See section 2.3 in GRI 1: Foundation 2021 for more information on ‘due diligence’.
+
+employee
+individual who is in an employment relationship with the organization according to national law
+or practice
+grievance
+perceived injustice evoking an individual’s or a group’s sense of entitlement, which may be
+based on law, contract, explicit or implicit promises, customary practice, or general notions of
+fairness of aggrieved communities
+Source:
+
+United Nations (UN), Guiding Principles on Business and Human Rights:
+Implementing the United Nations “Protect, Respect and Remedy” Framework, 2011
+
+grievance mechanism
+routinized process through which grievances can be raised and remedy can be sought
+
+11
+
+GRI 308: Supplier Environmental Assessment 2016
+
+Source:
+
+United Nations (UN), Guiding Principles on Business and Human Rights:
+Implementing the United Nations “Protect, Respect and Remedy” Framework, 2011;
+modified
+
+Note:
+
+See Guidance to Disclosure 2-25 in GRI 2: General Disclosures 2021 for more
+information on ‘grievance mechanism’.
+
+human rights
+rights inherent to all human beings, which include, at a minimum, the rights set out in the United
+Nations (UN) International Bill of Human Rights and the principles concerning fundamental
+rights set out in the International Labour Organization (ILO) Declaration on Fundamental
+Principles and Rights at Work
+Source:
+
+United Nations (UN), Guiding Principles on Business and Human Rights:
+Implementing the United Nations “Protect, Respect and Remedy” Framework, 2011;
+modified
+
+Note:
+
+See Guidance to 2-23-b-i in GRI 2: General Disclosures 2021 for more information
+on ‘human rights’.
+
+impact
+effect the organization has or could have on the economy, environment, and people, including on
+their human rights, which in turn can indicate its contribution (negative or positive) to sustainable
+development
+Note 1:
+
+Impacts can be actual or potential, negative or positive, short-term or long-term,
+intended or unintended, and reversible or irreversible.
+
+Note 2:
+
+See section 2.1 in GRI 1: Foundation 2021 for more information on ‘impact’.
+
+material topics
+topics that represent the organization’s most significant impacts on the economy, environment,
+and people, including impacts on their human rights
+Note:
+
+See section 2.2 in GRI 1: Foundation 2021 and section 1 in GRI 3: Material Topics
+2021 for more information on ‘material topics’.
+
+mitigation
+action(s) taken to reduce the extent of a negative impact
+Source:
+
+United Nations (UN), The Corporate Responsibility to Respect Human Rights: An
+Interpretive Guide, 2012; modified
+
+Note:
+
+The mitigation of an actual negative impact refers to actions taken to reduce the
+severity of the negative impact that has occurred, with any residual impact needing
+remediation. The mitigation of a potential negative impact refers to actions taken to
+reduce the likelihood of the negative impact occurring.
+
+remedy / remediation
+means to counteract or make good a negative impact or provision of remedy
+Source:
+
+United Nations (UN), The Corporate Responsibility to Respect Human Rights: An
+Interpretive Guide, 2012; modified
+
+Examples: apologies, financial or non-financial compensation, prevention of harm through
+injunctions or guarantees of non-repetition, punitive sanctions (whether criminal or
+administrative, such as fines), restitution, restoration, rehabilitation
+severity (of an impact)
+The severity of an actual or potential negative impact is determined by its scale (i.e., how grave
+the impact is), scope (i.e., how widespread the impact is), and irremediable character (how hard
+it is to counteract or make good the resulting harm).
+
+12
+
+GRI 308: Supplier Environmental Assessment 2016
+
+Source:
+
+Organisation for Economic Co-operation and Development (OECD), OECD Due
+Diligence Guidance for Responsible Business Conduct, 2018; modified
+United Nations (UN), The Corporate Responsibility to Respect Human Rights: An
+Interpretive Guide, 2012; modified
+
+Note:
+
+See section 1 in GRI 3: Material Topics 2021 for more information on ‘severity’.
+
+supplier
+entity upstream from the organization (i.e., in the organization’s supply chain), which provides a
+product or service that is used in the development of the organization’s own products or services
+Examples
+
+brokers, consultants, contractors, distributors, franchisees, home workers,
+independent contractors, licensees, manufacturers, primary producers, subcontractors, wholesalers
+
+Note:
+
+A supplier can have a direct business relationship with the organization (often
+referred to as a first-tier supplier) or an indirect business relationship.
+
+supplier screening
+formal or documented process that applies a set of performance criteria as one of the factors in
+determining whether to proceed in a relationship with a supplier
+supply chain
+range of activities carried out by entities upstream from the organization, which provide products
+or services that are used in the development of the organization’s own products or services
+sustainable development / sustainability
+development that meets the needs of the present without compromising the ability of future
+generations to meet their own needs
+Source:
+
+World Commission on Environment and Development, Our Common Future, 1987
+
+Note:
+
+The terms ‘sustainability’ and ‘sustainable development’ are used interchangeably
+in the GRI Standards.
+
+value chain
+range of activities carried out by the organization, and by entities upstream and downstream
+from the organization, to bring the organization’s products or services from their conception to
+their end use
+Note 1:
+
+Entities upstream from the organization (e.g., suppliers) provide products or
+services that are used in the development of the organization’s own products or
+services. Entities downstream from the organization (e.g., distributors, customers)
+receive products or services from the organization.
+
+Note 2:
+
+The value chain includes the supply chain.
+
+worker
+person that performs work for the organization
+Examples: employees, agency workers, apprentices, contractors, home workers, interns, selfemployed persons, sub-contractors, volunteers, and persons working for
+organizations other than the reporting organization, such as for suppliers
+Note:
+
+Bibliography
+
+In the GRI Standards, in some cases, it is specified whether a particular subset of
+workers is required to be used.
+
+13
+
+GRI 308: Supplier Environmental Assessment 2016
+
+Bibliography
+This section lists authoritative intergovernmental instruments used in developing this Standard.
+Authoritative instruments:
+1. United Nations (UN), ‘Guiding Principles on Business and Human Rights, Implementing the United Nations
+“Protect, Respect and Remedy” Framework’, 2011.
+2. United Nations (UN), Protect, Respect and Remedy: a Framework for Business and Human Rights, 2008.
+3. United Nations (UN), Report of the Special Representative of the Secretary-General on the Issue of Human
+Rights and Transnational Corporations and Other Business Enterprises, John Ruggie, 2011.
+
+PO Box 10039
+1001 EA Amsterdam
+The Netherlands
+www.globalreporting.org
+
+

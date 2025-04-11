@@ -7,7 +7,7 @@ from neo4j import GraphDatabase
 logger = logging.getLogger(__name__)
 
 
-class GraphConnector:
+class Neo4jConnector:
     """Base class for Neo4j Graph DB connections."""
     
     def __init__(self, config: dict):
@@ -21,24 +21,30 @@ class GraphConnector:
     def close(self):
         self.driver.close()
         logger.info("Neo4j driver closed")
-    
-    def insert_triples(self, triples: list):
-        """Insert triples into the graph database.
-        Each triple is a tuple (subject, predicate, object)."""
-        with self.driver.session() as session:
-            for triple in triples:
-                subject, predicate, object_ = triple
-                session.write_transaction(self._insert_triple, subject, predicate, object_)
-        logger.info(f"Inserted {len(triples)} triples into the graph database.")
-    
+
     @staticmethod
     def _insert_triple(tx, subject: str, predicate: str, object_: str):
         cypher_query = """
-        MERGE (a:Entity {name: $subject})
-        MERGE (b:Entity {name: $object})
-        MERGE (a)-[r:RELATION {type: $predicate}]->(b)
+        MERGE (s:Entity {name: $subject})
+        MERGE (o:Entity {name: $object})
+        MERGE (s)-[r:RELATIONSHIP]->(o)
+        SET r.type = $predicate
         """
         tx.run(cypher_query, subject=subject, predicate=predicate, object=object_)
+
+    def insert_triples(self, triples: list):
+        """Insert triples into the graph database. Each triple is a tuple (subject, predicate, object)."""
+        with self.driver.session() as session:
+            valid_triples = []
+            for triple in triples:
+                if len(triple) == 3:
+                    subject, predicate, object_ = triple
+                    if subject and predicate and object_: # insert if only non-null
+                        session.write_transaction(self._insert_triple, subject, predicate, object_)
+                        valid_triples.append(triple)
+                    else:
+                        logger.warning(f"Skipped invalid triple: {triple}")
+            logger.info(f"Inserted {len(valid_triples)} triples into the graph database.")
     
     def query(self, cypher_query: str, parameters: dict = {}):
         """Execute a Cypher query and return the results."""
@@ -55,7 +61,7 @@ class GraphConnector:
         logger.info("Deleted all nodes and relationships from the graph database.")
 
 
-class EsgGraphDB(GraphConnector):
+class EsgGraphDB(Neo4jConnector):
     """Platform-specific knowledge graph store for ESG data using Neo4j."""
     def __init__(self, config_path: str = "config/config.yaml"):
         with open(config_path) as f:
@@ -63,7 +69,7 @@ class EsgGraphDB(GraphConnector):
         super().__init__(config)
 
 
-class FinraGraphDB(GraphConnector):
+class FinraGraphDB(Neo4jConnector):
     """Platform-specific knowledge graph store for FINRA data using Neo4j."""
     def __init__(self, config_path: str = "config/config.yaml"):
         with open(config_path) as f:
@@ -71,7 +77,7 @@ class FinraGraphDB(GraphConnector):
         super().__init__(config)
 
 
-class GdprGraphDB(GraphConnector):
+class GdprGraphDB(Neo4jConnector):
     """Platform-specific knowledge graph store for GDPR data using Neo4j."""
     def __init__(self, config_path: str = "config/config.yaml"):
         with open(config_path) as f:

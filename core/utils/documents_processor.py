@@ -2,6 +2,7 @@ import json
 import uuid
 import hashlib
 import logging
+import re
 from langchain.text_splitter import RecursiveCharacterTextSplitter, MarkdownTextSplitter
 from core.llm.base import BaseLLM
 import ollama
@@ -48,12 +49,34 @@ class ChunkEnricher:
 
     def _generate_chunk_id(self, text: str) -> str:
         return f"{hashlib.sha256(text.encode()).hexdigest()[:16]}-{str(uuid.uuid4())[:4]}"
+    
+    @staticmethod
+    def _safe_json_load(text):
+        # Try to directly find JSON-like content
+        cleaned = text.strip()
+        
+        # Remove markdown code blocks if any
+        cleaned = re.sub(r"^```(json)?", "", cleaned)
+        cleaned = re.sub(r"```$", "", cleaned)
+        
+        # Replace wrong quotes
+        cleaned = cleaned.replace("‘", '"').replace("’", '"').replace("“", '"').replace("”", '"')
+        cleaned = cleaned.strip()
+
+        # Try to extract JSON part if there's extra junk
+        match = re.search(r'(\{.*\})', cleaned, re.DOTALL)
+        if match:
+            json_text = match.group(1)
+            return json.loads(json_text)
+        
+        # Fallback if no match
+        return json.loads(cleaned)
 
     def _parse_enrichment_response(self, chunk: str, response: str) -> dict:
         try:
-            metadata = json.loads(response.strip("```"))
+            metadata = self._safe_json_load(response)
         except json.JSONDecodeError:
-            logger.error("Failed to parse LLM response")
+            logger.error("Failed to parse LLM response after cleaning")
             metadata = {"raw_response": response}
         return {
             "text": chunk,
@@ -64,21 +87,26 @@ class ChunkEnricher:
     def enrich_chunk(self, doc_type: str, chunk: str, metadata_headers: list = None) -> dict:
         if doc_type.startswith("esg"):
             prompt = f"""
-                {self.system_prompt}
+                        {self.system_prompt}
 
-                Analyze this ESG document chunk and extract structured information:
+                        Analyze this ESG document chunk and extract structured information.
 
-                {chunk}
+                        IMPORTANT: Only output VALID JSON. 
+                        No text or explanation outside JSON. 
+                        No markdown formatting.
 
-                Output JSON with:
-                - "summary": 3-sentence overview
-                - "standard": Official standard name/number
-                - "requirements": List of requirement texts with hierarchy
-                - "recommendations": List of recommendation texts
-                - "guidance": List of guidance explanations
-                - "metrics": List of mentioned metrics
-                - "entities": Organizations, frameworks, or regulations mentioned
-            """
+                        Here is the chunk:
+                        {chunk}
+
+                        Expected JSON with keys:
+                        - summary
+                        - standard
+                        - requirements
+                        - recommendations
+                        - guidance
+                        - metrics
+                        - entities
+                        """
         else:
             prompt = f"{self.system_prompt}\nProcess the following chunk:\n{chunk}"
         
@@ -96,18 +124,30 @@ class ChunkEnricher:
         prompt = f"""
             {self.system_prompt}
 
-            Extract graph triples from the following text. Format each triple as a JSON list, e.g.:
-            [["Subject1", "predicate1", "Object1"], ["Subject2", "predicate2", "Object2"]]
+            Extract graph triples from the following text.
+
+            IMPORTANT INSTRUCTIONS:
+            - Only output valid JSON list.
+            - No explanations.
+            - No extra text.
+            - No code blocks.
+            - Start directly with '[' and end directly with ']'.
+
+            Example:
+            [
+                ["Subject1", "predicate1", "Object1"],
+                ["Subject2", "predicate2", "Object2"]
+            ]
 
             Text:
             {chunk}
-        """
+            """
         logger.info("Extracting graph triples from chunk")
         response = self.llm.generate(prompt)
         try:
-            triples = json.loads(response.strip("```"))
+            triples = self._safe_json_load(response)
         except json.JSONDecodeError:
-            logger.error("Failed to parse graph triples from response")
+            logger.error("Failed to parse graph triples from LLM response")
             triples = []
         return triples
 
