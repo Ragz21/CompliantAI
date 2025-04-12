@@ -50,8 +50,7 @@ class ChunkEnricher:
     def _generate_chunk_id(self, text: str) -> str:
         return f"{hashlib.sha256(text.encode()).hexdigest()[:16]}-{str(uuid.uuid4())[:4]}"
     
-    @staticmethod
-    def _safe_json_load(text):
+    def _safe_json_load(self, text):
         # Try to directly find JSON-like content
         cleaned = text.strip()
         
@@ -89,7 +88,7 @@ class ChunkEnricher:
             prompt = f"""
                         {self.system_prompt}
 
-                        Analyze this ESG document chunk and extract structured information.
+                        Analyze this {doc_type} document chunk and extract structured information.
 
                         IMPORTANT: Only output VALID JSON. 
                         No text or explanation outside JSON. 

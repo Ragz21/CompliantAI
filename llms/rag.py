@@ -19,7 +19,25 @@ class RAG(BaseLLM):
         # TODO: other DB
         self.embedding_model = self.config.get("document_processor", {}).get("embedding_model", "nomic-embed-text")
 
-    def index_documents(self, folder: str, use_esg: bool = True, use_gdpr: bool = False):
+    def insert_documents_and_triples(self, vector_db, graph_db, enriched_chunks, dp):
+        """
+        Insert enriched chunks into the vector database and graph database.
+        """
+        # Insert into Vector DB
+        for chunk in enriched_chunks:
+            vector_db.insert_documents(
+                ids=[chunk["metadata"]["chunk_id"]],
+                documents=[chunk["text"]],
+                metadatas=[chunk["metadata"]],
+                embeddings=[chunk["embedding"]]
+            )
+        # Insert into Graph DB
+        for chunk in enriched_chunks:
+            graph_triples = dp.process_document_for_graph(chunk["text"])
+            if graph_triples:
+                graph_db.insert_triples(graph_triples)
+
+    def index_documents(self, folder: str, doc_type: str):
         """
         Process all text files in a folder and insert their enriched data into
         EsgDB if use_esg is True, or KnowhereDB otherwise.
@@ -33,68 +51,28 @@ class RAG(BaseLLM):
             if os.path.isfile(file_path) and filename.endswith(".txt"):
                 with open(file_path, 'r', encoding='utf-8') as f:
                     content = f.read()
-                doc_type = "esg" if use_esg else ""
                 enriched_chunks = dp.process_document(content, doc_type=doc_type)
-                if use_esg:
-                    # Insert into ESG Vector DB
-                    for chunk in enriched_chunks:
-                        self.esg_vector_db.insert_documents(
-                            ids=[chunk["metadata"]["chunk_id"]],
-                            documents=[chunk["text"]],
-                            metadatas=[chunk["metadata"]],
-                            embeddings=[chunk["embedding"]]
-                        )
-                    # Insert into ESG Graph DB
-                    for chunk in enriched_chunks:
-                        graph_triples = dp.process_document_for_graph(chunk["text"])
-                        if graph_triples:
-                            self.esg_graph_db.insert_triples(graph_triples)
-
-                elif use_gdpr:
-                    # Insert into GDPR Vector DB
-                    for chunk in enriched_chunks:
-                        self.gdpr_vector_db.insert_documents(
-                            ids=[chunk["metadata"]["chunk_id"]],
-                            documents=[chunk["text"]],
-                            metadatas=[chunk["metadata"]],
-                            embeddings=[chunk["embedding"]]
-                        )
-                    # Insert into GDPR Graph DB
-                    for chunk in enriched_chunks:
-                        graph_triples = dp.process_document_for_graph(chunk["text"])
-                        if graph_triples:
-                            self.gdpr_graph_db.insert_triples(graph_triples)
+                if doc_type == "esg":
+                    # Insert into Vector DB and Graph DB
+                    self.insert_documents_and_triples(self.esg_vector_db, self.esg_graph_db, enriched_chunks, dp)
+                elif doc_type == "gdpr":
+                    # Insert into Vector DB and Graph DB
+                    self.insert_documents_and_triples(self.gdpr_vector_db, self.gdpr_graph_db, enriched_chunks, dp)
                 else:
-                    # Insert into Finra Vector DB
-                    for chunk in enriched_chunks:
-                        self.finra_vector_db.insert_documents(
-                            ids=[chunk["metadata"]["chunk_id"]],
-                            documents=[chunk["text"]],
-                            metadatas=[chunk["metadata"]],
-                            embeddings=[chunk["embedding"]]
-                        )
-                    # Insert into Finra Graph DB
-                    for chunk in enriched_chunks:
-                        graph_triples = dp.process_document_for_graph(chunk["text"])
-                        if graph_triples:
-                            self.finra_graph_db.insert_triples(graph_triples)
-            if use_esg:
-                logger.info(f"Indexed file {filename} into ESG Vector DB and Graph DB")
-            elif use_gdpr:
-                logger.info(f"Indexed file {filename} into GDPR Vector DB and Graph DB")
-            else:
-                logger.info(f"Indexed file {filename} into FINRA Vector DB and Graph DB")
+                    # Insert into Vector DB and Graph DB
+                    self.insert_documents_and_triples(self.finra_vector_db, self.finra_graph_db, enriched_chunks, dp)
+                # Log
+                logger.info(f"Indexed file {filename} into {doc_type.upper()} Vector DB and Graph DB")
 
-
-    def answer_query(self, query: str, use_esg: bool = True, use_gdpr = False ,k: int = 5) -> dict:
+    def answer_query(self, query: str, doc_type: str, k:int) -> dict:
         """
         Query the correct vector database (EsgDB, GdprDB, FinraDB) based on the flag,
         then return the retrieved context.
         """
         query_embedding = self.generate_embedding(query, self.embedding_model)
-        if use_esg:
+        if doc_type == "esg":
             results = self.esg_vector_db.query([query_embedding], n_results=k)
-        elif use_gdpr:
+        elif doc_type == "gdpr":
             results = self.gdpr_vector_db.query([query_embedding], n_results=k)
         else:
             results = self.finra_vector_db.query([query_embedding], n_results=k)

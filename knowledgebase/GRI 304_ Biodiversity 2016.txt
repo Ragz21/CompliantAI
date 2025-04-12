@@ -1,0 +1,579 @@
+GRI 304: Biodiversity 2016
+
+EFFECTIVE DATE: 1 JULY 2018
+
+TOPIC STANDARD
+
+304
+
+GRI 304: Biodiversity 2016
+Topic Standard
+Effective Date
+This Standard is effective for reports or other materials published on or after 1 July 2018
+Responsibility
+This Standard is issued by the Global Sustainability Standards Board (GSSB). Any feedback on the GRI Standards
+can be submitted to gssbsecretariat@globalreporting.org for the consideration of the GSSB.
+Due Process
+This Standard was developed in the public interest and in accordance with the requirements of the GSSB Due
+Process Protocol. It has been developed using multi-stakeholder expertise, and with regard to authoritative
+intergovernmental instruments and widely held expectations of organizations relating to social, environmental, and
+economic responsibilities.
+Legal Liability
+This document, designed to promote sustainability reporting, has been developed by the Global Sustainability
+Standards Board (GSSB) through a unique multi-stakeholder consultative process involving representatives from
+organizations and report information users from around the world. While the GRI Board of Directors and GSSB
+encourage the use of the GRI Sustainability Reporting Standards (GRI Standards) and related Interpretations by all
+organizations, the preparation and publication of reports based fully or partially on the GRI Standards and related
+Interpretations are the full responsibility of those producing them. Neither the GRI Board of Directors, GSSB, nor
+Stichting Global Reporting Initiative (GRI) can assume responsibility for any consequences or damages resulting
+directly or indirectly from the use of the GRI Standards and related Interpretations in the preparation of reports, or the
+use of reports based on the GRI Standards and related Interpretations.
+Copyright and trademark notice
+This document is copyright-protected by Stichting Global Reporting Initiative (GRI). The reproduction and distribution
+of this document for information and/or use in preparing a sustainability report is permitted without prior permission
+from GRI. However, neither this document nor any extract from it may be reproduced, stored, translated, or transferred
+in any form or by any means (electronic, mechanical, photocopied, recorded, or otherwise) for any other purpose
+without prior written permission from GRI.
+Global Reporting Initiative, GRI and logo, GSSB and logo, and GRI Sustainability Reporting Standards (GRI
+Standards) and logo are trademarks of Stichting Global Reporting Initiative.
+© 2022 GRI. All rights reserved.
+ISBN 978-90-8866-107-5
+
+3
+
+GRI 304: Biodiversity 2016
+
+Content
+Introduction
+
+4
+
+1. Topic management disclosures
+
+7
+
+2. Topic disclosures
+
+8
+
+Disclosure 304-1 Operational sites owned, leased, managed in, or adjacent to,
+protected areas and areas of high biodiversity value outside protected areas
+
+8
+
+Disclosure 304-2 Significant impacts of activities, products and services on
+biodiversity
+
+9
+
+Disclosure 304-3 Habitats protected or restored
+
+10
+
+Disclosure 304-4 IUCN Red List species and national conservation list species with
+habitats in areas affected by operations
+
+11
+
+Glossary
+
+12
+
+Bibliography
+
+14
+
+4
+
+GRI 304: Biodiversity 2016
+
+Introduction
+GRI 304: Biodiversity 2016 contains disclosures for organizations to report information about their biodiversity-related
+impacts, and how they manage these impacts.
+The Standard is structured as follows:
+• Section 1 contains a requirement, which provides information about how the organization manages its
+biodiversity-related impacts.
+• Section 2 contains four disclosures, which provide information about the organization’s biodiversity-related
+impacts.
+• The Glossary contains defined terms with a specific meaning when used in the GRI Standards. The terms are
+underlined in the text of the GRI Standards and linked to the definitions.
+• The Bibliography lists authoritative intergovernmental instruments and additional references used in developing
+this Standard.
+The rest of the Introduction section provides a background on the topic, an overview of the system of GRI Standards
+and further information on using this Standard.
+
+Background on the topic
+This Standard addresses the topic of biodiversity.
+Protecting biological diversity is important for ensuring the survival of plant and animal species, genetic diversity, and
+natural ecosystems. In addition, natural ecosystems provide clean water and air, and contribute to food security and
+human health. Biodiversity also contributes directly to local livelihoods, making it essential for achieving poverty
+reduction, and thus sustainable development.
+These concepts are covered in key instruments of the United Nations: see Bibliography.
+
+System of GRI Standards
+This Standard is part of the GRI Sustainability Reporting Standards (GRI Standards). The GRI Standards enable an
+organization to report information about its most significant impacts on the economy, environment, and people,
+including impacts on their human rights, and how it manages these impacts.
+The GRI Standards are structured as a system of interrelated standards that are organized into three series: GRI
+Universal Standards, GRI Sector Standards, and GRI Topic Standards (see Figure 1 in this Standard).
+Universal Standards: GRI 1, GRI 2 and GRI 3
+GRI 1: Foundation 2021 specifies the requirements that the organization must comply with to report in accordance
+with the GRI Standards. The organization begins using the GRI Standards by consulting GRI 1.
+GRI 2: General Disclosures 2021 contains disclosures that the organization uses to provide information about its
+reporting practices and other organizational details, such as its activities, governance, and policies.
+GRI 3: Material Topics 2021 provides guidance on how to determine material topics. It also contains disclosures that
+the organization uses to report information about its process of determining material topics, its list of material topics,
+and how it manages each topic.
+Sector Standards
+The Sector Standards provide information for organizations about their likely material topics. The organization uses
+the Sector Standards that apply to its sectors when determining its material topics and when determining what to
+report for each material topic.
+Topic Standards
+The Topic Standards contain disclosures that the organization uses to report information about its impacts in relation
+to particular topics. The organization uses the Topic Standards according to the list of material topics it has
+determined using GRI 3.
+
+5
+
+GRI 304: Biodiversity 2016
+
+Figure 1. GRI Standards: Universal, Sector and Topic Standards
+
+GRI Standards
+
+Universal Standards
+
+Sector Standards
+
+Topic Standards
+
+Use the Sector Standards that
+apply to your sectors
+
+Select Topic Standards to report
+specific information on your
+material topics
+
+Requirements and
+principles for using the
+GRI Standards
+
+Disclosures about the
+reporting organization
+
+Disclosures and
+guidance about the
+organization's material
+topics
+
+Apply all three Universal
+Standards to your reporting
+
+Using this Standard
+This Standard can be used by any organization – regardless of size, type, sector, geographic location, or reporting
+experience – to report information about its biodiversity-related impacts.
+An organization reporting in accordance with the GRI Standards is required to report the following disclosures if it has
+determined biodiversity to be a material topic:
+• Disclosure 3-3 in GRI 3: Material Topics 2021 (see clause 1.1 in this Standard);
+• Any disclosures from this Topic Standard that are relevant to the organization’s biodiversity-related impacts
+(Disclosure 304-1 through Disclosure 304-4).
+See Requirements 4 and 5 in GRI 1: Foundation 2021.
+Reasons for omission are permitted for these disclosures.
+If the organization cannot comply with a disclosure or with a requirement in a disclosure (e.g., because the required
+information is confidential or subject to legal prohibitions), the organization is required to specify the disclosure or the
+requirement it cannot comply with, and provide a reason for omission together with an explanation in the GRI content
+index. See Requirement 6 in GRI 1: Foundation 2021 for more information on reasons for omission.
+If the organization cannot report the required information about an item specified in a disclosure because the item
+(e.g., committee, policy, practice, process) does not exist, it can comply with the requirement by reporting this to be the
+case. The organization can explain the reasons for not having this item, or describe any plans to develop it. The
+disclosure does not require the organization to implement the item (e.g., developing a policy), but to report that the
+item does not exist.
+If the organization intends to publish a standalone sustainability report, it does not need to repeat information that it
+has already reported publicly elsewhere, such as on web pages or in its annual report. In such a case, the
+organization can report a required disclosure by providing a reference in the GRI content index as to where this
+information can be found (e.g., by providing a link to the web page or citing the page in the annual report where the
+information has been published).
+
+6
+
+GRI 304: Biodiversity 2016
+
+Requirements, guidance and defined terms
+The following apply throughout this Standard:
+Requirements are presented in bold font and indicated by the word 'shall'. An organization must comply with
+requirements to report in accordance with the GRI Standards.
+Requirements may be accompanied by guidance.
+Guidance includes background information, explanations, and examples to help the organization better understand
+the requirements. The organization is not required to comply with guidance.
+The Standards may also include recommendations. These are cases where a particular course of action is
+encouraged but not required.
+The word ‘should’ indicates a recommendation, and the word ‘can’ indicates a possibility or option.
+Defined terms are underlined in the text of the GRI Standards and linked to their definitions in the Glossary. The
+organization is required to apply the definitions in the Glossary.
+
+7
+
+GRI 304: Biodiversity 2016
+
+1. Topic management disclosures
+An organization reporting in accordance with the GRI Standards is required to report how it manages each of its
+material topics.
+An organization that has determined biodiversity to be a material topic is required to report how it manages the topic
+using Disclosure 3-3 in GRI 3: Material Topics 2021 (see clause 1.1 in this section).
+This section is therefore designed to supplement – and not replace – Disclosure 3-3 in GRI 3.
+REQUIREMENTS
+
+GUIDANCE
+
+1.1
+
+The reporting organization shall report how it manages biodiversity using Disclosure
+3-3 in GRI 3: Material Topics 2021.
+
+The reporting organization can also describe its strategy for achieving its policy on biodiversity
+management. A biodiversity strategy can contain a combination of elements related to the
+prevention, management, and remediation of damage to natural habitats resulting from the
+organization’s activities. An example of this is the integration of biodiversity considerations into
+analytical tools, such as environmental site impact assessments.
+
+8
+
+GRI 304: Biodiversity 2016
+
+2. Topic disclosures
+Disclosure 304-1 Operational sites owned, leased,
+managed in, or adjacent to, protected areas and areas
+of high biodiversity value outside protected areas
+REQUIREMENTS
+
+The reporting organization shall report the following information:
+a.
+
+For each operational site owned, leased, managed in, or adjacent to, protected areas
+and areas of high biodiversity value outside protected areas, the following information:
+i.
+ii.
+iii.
+
+iv.
+v.
+vi.
+
+vii.
+
+RECOMMENDATIONS
+
+GUIDANCE
+
+2.1
+
+Geographic location;
+Subsurface and underground land that may be owned, leased, or managed by the
+organization;
+Position in relation to the protected area (in the area, adjacent to, or containing
+portions of the protected area) or the high biodiversity value area outside
+protected areas;
+Type of operation (office, manufacturing or production, or extractive);
+Size of operational site in km2 (or another unit, if appropriate);
+Biodiversity value characterized by the attribute of the protected area or area of
+high biodiversity value outside the protected area (terrestrial, freshwater, or
+maritime ecosystem);
+Biodiversity value characterized by listing of protected status (such as IUCN
+Protected Area Management Categories, Ramsar Convention, national legislation).
+
+When compiling the information specified in Disclosure 304-1, the reporting organization
+should include information about sites for which future operations have been formally
+announced.
+
+Background
+Monitoring which activities are taking place in both protected areas and areas of high biodiversity
+value outside protected areas makes it possible for the organization to reduce the risks of
+impacts. It also makes it possible for the organization to manage impacts on biodiversity or to
+avoid mismanagement.
+
+9
+
+GRI 304: Biodiversity 2016
+
+Disclosure 304-2 Significant impacts of activities,
+products and services on biodiversity
+REQUIREMENTS
+
+The reporting organization shall report the following information:
+a.
+
+Nature of significant direct and indirect impacts on biodiversity with reference to one or
+more of the following:
+i.
+ii.
+iii.
+iv.
+v.
+vi.
+
+b.
+
+Significant direct and indirect positive and negative impacts with reference to the
+following:
+i.
+ii.
+iii.
+iv.
+
+GUIDANCE
+
+Construction or use of manufacturing plants, mines, and transport infrastructure;
+Pollution (introduction of substances that do not naturally occur in the habitat from
+point and non-point sources);
+Introduction of invasive species, pests, and pathogens;
+Reduction of species;
+Habitat conversion;
+Changes in ecological processes outside the natural range of variation (such as
+salinity or changes in groundwater level).
+
+Species affected;
+Extent of areas impacted;
+Duration of impacts;
+Reversibility or irreversibility of the impacts.
+
+Guidance for Disclosure 304-2
+Indirect impacts on biodiversity can include impacts in the supply chain.
+Areas of impact are not limited to areas that are formally protected and include consideration of
+impacts on buffer zones, as well as formally designated areas of special importance or
+sensitivity.
+Background
+This disclosure provides the background for understanding (and developing) an organization’s
+strategy to mitigate significant direct and indirect impacts on biodiversity. By presenting
+structured and qualitative information, the disclosure enables comparison of the relative size,
+scale, and nature of impacts over time and across organizations.
+
+10
+
+GRI 304: Biodiversity 2016
+
+Disclosure 304-3 Habitats protected or restored
+REQUIREMENTS
+
+RECOMMENDATIONS
+
+GUIDANCE
+
+The reporting organization shall report the following information:
+a.
+
+Size and location of all habitat areas protected or restored, and whether the success of
+the restoration measure was or is approved by independent external professionals.
+
+b.
+
+Whether partnerships exist with third parties to protect or restore habitat areas distinct
+from where the organization has overseen and implemented restoration or protection
+measures.
+
+c.
+
+Status of each area based on its condition at the close of the reporting period.
+
+d.
+
+Standards, methodologies, and assumptions used.
+
+2.2
+
+When compiling the information specified in Disclosure 304-3, the reporting organization
+should align the information presented in this disclosure with regulatory or license
+requirements for the protection or restoration of habitats, if applicable.
+
+Guidance for Disclosure 304-3
+This disclosure addresses the extent of an organization’s prevention and remediation activities
+with respect to its impacts on biodiversity. This disclosure refers to areas where remediation
+has been completed or where the area is actively protected. Areas where operations are still
+active can be counted if they conform to the definitions of ‘area restored’ or ‘area protected’.
+
+11
+
+GRI 304: Biodiversity 2016
+
+Disclosure 304-4 IUCN Red List species and national
+conservation list species with habitats in areas affected
+by operations
+REQUIREMENTS
+
+The reporting organization shall report the following information:
+a.
+
+Total number of IUCN Red List species and national conservation list species with
+habitats in areas affected by the operations of the organization, by level of extinction
+risk:
+i.
+ii.
+iii.
+iv.
+v.
+
+RECOMMENDATIONS
+
+GUIDANCE
+
+2.3
+
+Critically endangered
+Endangered
+Vulnerable
+Near threatened
+Least concern
+
+When compiling the information specified in Disclosure 304-4, the reporting organization
+should compare the information in the IUCN Red List and national conservation lists with
+the species outlined in planning documentation and monitoring records to ensure
+consistency.
+
+Background
+This disclosure helps an organization to identify where its activities pose a threat to endangered
+plant and animal species. By identifying these threats, the organization can initiate appropriate
+steps to avoid harm and to prevent the extinction of species. The International Union for
+Conservation of Nature (IUCN) ‘Red List of Threatened Species’ (an inventory of the global
+conservation status of plant and animal species) and national conservation lists serve as
+authorities on the sensitivity of habitat in areas affected by operations, and on the relative
+importance of these habitats from a management perspective.
+See reference [8] in the Bibliography.
+
+12
+
+GRI 304: Biodiversity 2016
+
+Glossary
+This glossary provides definitions for terms used in this Standard. The organization is required to apply these
+definitions when using the GRI Standards.
+The definitions included in this glossary may contain terms that are further defined in the complete GRI Standards
+Glossary. All defined terms are underlined. If a term is not defined in this glossary or in the complete GRI Standards
+Glossary, definitions that are commonly used and understood apply.
+area of high biodiversity value
+area not subject to legal protection, but recognized for important biodiversity features by a
+number of governmental and non-governmental organizations
+Note 1:
+
+Areas of high biodiversity value include habitats that are a priority for conservation,
+which are often defined in National Biodiversity Strategies and Action Plans
+prepared under the United Nations (UN) Convention, ‘Convention on Biological
+Diversity’, 1992.
+
+Note 2:
+
+Several international conservation organizations have identified particular areas of
+high biodiversity value.
+
+area protected
+area that is protected from any harm during operational activities, and where the environment
+remains in its original state with a healthy and functioning ecosystem
+area restored
+area that was used during or affected by operational activities, and where remediation
+measures have either restored the environment to its original state, or to a state where it has a
+healthy and functioning ecosystem
+human rights
+rights inherent to all human beings, which include, at a minimum, the rights set out in the United
+Nations (UN) International Bill of Human Rights and the principles concerning fundamental
+rights set out in the International Labour Organization (ILO) Declaration on Fundamental
+Principles and Rights at Work
+Source:
+
+United Nations (UN), Guiding Principles on Business and Human Rights:
+Implementing the United Nations “Protect, Respect and Remedy” Framework, 2011;
+modified
+
+Note:
+
+See Guidance to 2-23-b-i in GRI 2: General Disclosures 2021 for more information
+on ‘human rights’.
+
+impact
+effect the organization has or could have on the economy, environment, and people, including on
+their human rights, which in turn can indicate its contribution (negative or positive) to sustainable
+development
+Note 1:
+
+Impacts can be actual or potential, negative or positive, short-term or long-term,
+intended or unintended, and reversible or irreversible.
+
+Note 2:
+
+See section 2.1 in GRI 1: Foundation 2021 for more information on ‘impact’.
+
+material topics
+topics that represent the organization’s most significant impacts on the economy, environment,
+and people, including impacts on their human rights
+Note:
+
+See section 2.2 in GRI 1: Foundation 2021 and section 1 in GRI 3: Material Topics
+2021 for more information on ‘material topics’.
+
+protected area
+geographic area that is designated, regulated, or managed to achieve specific conservation
+objectives
+
+13
+
+GRI 304: Biodiversity 2016
+
+significant impact on biodiversity
+impact that can adversely affect the integrity of a geographic area or region, either directly or
+indirectly, by substantially changing its ecological features, structures, and functions across its
+whole area, and over the long term, so that habitat, its population levels, and the particular
+species that make the habitat important cannot be sustained
+Note 1:
+
+On a species level, a significant impact causes a population decline or change in
+distribution so that natural recruitment (reproduction or immigration from unaffected
+areas) cannot return to former levels within a limited number of generations.
+
+Note 2:
+
+A significant impact can also affect subsistence or commercial resource use to the
+degree that the well-being of users is affected over the long term.
+
+sustainable development / sustainability
+development that meets the needs of the present without compromising the ability of future
+generations to meet their own needs
+Source:
+
+World Commission on Environment and Development, Our Common Future, 1987
+
+Note:
+
+The terms ‘sustainability’ and ‘sustainable development’ are used interchangeably
+in the GRI Standards.
+
+Bibliography
+
+14
+
+GRI 304: Biodiversity 2016
+
+Bibliography
+This section lists authoritative intergovernmental instruments and additional references used in developing this
+Standard.
+Authoritative instruments:
+1. Ramsar Convention, ‘The Convention on Wetlands of International Importance especially as Waterfowl Habitat’,
+1994.
+2. United Nations (UN) Convention, ‘Convention on Biological Diversity’, 1992.
+3. United Nations (UN) Convention, ‘Convention on International Trade in Endangered Species of Wild Flora and
+Fauna (CITES)’, 1979.
+4. United Nations Educational, Scientific and Cultural Organization (UNESCO), Biosphere Reserves,
+http://www.unesco.org/new/en/natural-sciences/environment/ecological-sciences/biosphere-reserves/,
+accessed on 1 September 2016.
+5. United Nations Educational, Scientific and Cultural Organization (UNESCO), World Heritage Sites List,
+http://whc.unesco.org/en/list, accessed on 1 September 2016.
+Additional references:
+6. BirdLife International, Important Bird and Biodiversity Areas, http://www.birdlife.org/datazone/site, accessed on 1
+September 2016.
+7. International Union for Conservation of Nature (IUCN), Guidelines for Applying Protected Area Management
+Categories, 2008.
+8. International Union for Conservation of Nature (IUCN), Red List of Threatened Species,
+http://www.iucnredlist.org/, accessed on 1 September 2016.
+
+PO Box 10039
+1001 EA Amsterdam
+The Netherlands
+www.globalreporting.org
+
+

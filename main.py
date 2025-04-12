@@ -13,9 +13,9 @@ def main():
     # Running RAG
     rag_system = RAG(config_path="config/config.yaml")
     folder_path = "knowledgebase"
-    rag_system.index_documents(folder=folder_path, use_esg=True)
+    rag_system.index_documents(folder=folder_path, doc_type="esg")
     query = "What are the requirements of 301-2"
-    result = rag_system.answer_query(query, use_esg=True, k=3)
+    result = rag_system.answer_query(query,doc_type="esg", k=3)
     print("Query Results:")
     print(result)
 
