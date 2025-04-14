@@ -17,30 +17,30 @@ databases:
     collection: platform
     embedding_model: nomic-embed-text
     dimension: 768
-    index_path: ./databases/esg_db.index
-    mapping_path: ./databases/esg_db_mapping.json
+    index_path: ./databases/finra_db.index
+    mapping_path: ./databases/finra_db_mapping.json
   gdpr_db:
     type: faiss
     collection: platform
     embedding_model: nomic-embed-text
     dimension: 768
-    index_path: ./databases/esg_db.index
-    mapping_path: ./databases/esg_db_mapping.json
+    index_path: ./databases/gdpr_db.index
+    mapping_path: ./databases/gdpr_db_mapping.json
 
   esg_graph_db:
     uri: bolt://localhost:7687
     user: neo4j
-    password: neo4j
+    password: esggraphdb
   
   finra_graph_db:
     uri: bolt://localhost:7687
     user: neo4j
-    password: neo4j
+    password: neo4j123
   
   gdpr_graph_db:
     uri: bolt://localhost:7687
     user: neo4j
-    password: neo4j
+    password: neo4j123
 
 document_processor:
   embedding_model: nomic-embed-text
