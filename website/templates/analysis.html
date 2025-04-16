@@ -14,6 +14,12 @@
       --accent: #c6f4d6;
     }
     
+    :root {
+      --primary-bg: #faf6f4;
+      --primary-text: #343b36;
+      --accent: #c6f4d6;
+    }
+    
     .analysis-container {
       display: flex;
       flex-direction: column;
@@ -40,7 +46,7 @@
       align-items: center;
       gap: 1rem;
     }
-    
+        
     .document-header-line .document-name {
       flex-grow: 1;
       white-space: nowrap;
@@ -52,10 +58,12 @@
       font-size: 1.1rem;
       font-weight: 500;
       color: var(--primary-text);
+      color: var(--primary-text);
       cursor: pointer;
     }
     
     .document-name:hover {
+      color: var(--accent);
       color: var(--accent);
     }
     
@@ -73,9 +81,13 @@
       background-color: var(--accent);
       color: var(--primary-text);
     }
+      background-color: var(--accent);
+      color: var(--primary-text);
+    }
     
     .document-timestamp {
       font-size: 0.9rem;
+      color: var(--primary-text);
       color: var(--primary-text);
     }
     
@@ -86,6 +98,7 @@
     }
     
     .analyze-btn {
+      background: var(--accent);
       background: var(--accent);
       color: white;
       border: none;
@@ -98,6 +111,7 @@
     }
     
     .analyze-btn:hover {
+      background: #bde0c9;
       background: #bde0c9;
     }
     
@@ -132,9 +146,11 @@
       font-size: 1.5rem;
       cursor: pointer;
       color: var(--primary-text);
+      color: var(--primary-text);
     }
     
     .close-modal:hover {
+      color: var(--accent);
       color: var(--accent);
     }
     
@@ -193,6 +209,9 @@
       <a href="/" style="text-decoration: none; color: inherit; cursor: pointer;">
         <h1><i class="fas fa-shield-alt" style="color: #343b36;"></i> Comply.Ai</h1>
       </a>
+      <a href="/" style="text-decoration: none; color: inherit; cursor: pointer;">
+        <h1><i class="fas fa-shield-alt" style="color: #343b36;"></i> Comply.Ai</h1>
+      </a>
     </header>
 
     <main>
@@ -203,6 +222,7 @@
     </main>
 
     <footer>
+      <p>&copy; 2025 CompliantAI. All rights reserved.</p>
       <p>&copy; 2025 CompliantAI. All rights reserved.</p>
     </footer>
   </div>
