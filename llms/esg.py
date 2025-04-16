@@ -62,3 +62,4 @@ class ESG(BaseLLM):
         """
         final_prompt = f"{self.system_prompt}\n\nGenerate mini-report for the following text:\n\n{text}"
         return self.generate(final_prompt)
+    
