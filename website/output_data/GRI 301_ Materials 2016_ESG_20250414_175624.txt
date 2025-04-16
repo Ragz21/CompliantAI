@@ -1,0 +1,15 @@
+Analysis Report for GRI 301_ Materials 2016.pdf
+
+Tags: ESG
+
+Compliance Checks:
+----------------
+- ESG compliance: PASSED
+  - Environmental impact assessment completed
+  - Social responsibility metrics documented
+
+Notes:
+------
+- This is a mock analysis report for demonstration purposes.
+- In a real application, this would contain actual analysis results.
+- Analysis was performed at 2025-04-14 17:56:24

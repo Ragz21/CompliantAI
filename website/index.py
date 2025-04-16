@@ -1,9 +1,14 @@
+import sys
 import os
 from flask import Flask, render_template, request, jsonify, send_from_directory, session, send_file
 import time
 import json
+import traceback
 from werkzeug.utils import secure_filename
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
+from ans_query import analyze_esg_file, create_pdf
 from datetime import datetime
+from map_reduce_example import total_reduce
 
 app = Flask(__name__)
 app.secret_key = 'compliant_ai_secret_key'  # For session management
@@ -106,7 +111,7 @@ def list_output_files():
     output_files = []
     
     for f in files:
-        if f.endswith('.txt'):
+        if f.endswith('.txt') or f.endswith('.pdf'):
             try:
                 filename_wo_ext = f.replace('.txt', '')
                 parts = filename_wo_ext.split('_')
@@ -183,83 +188,86 @@ def analyze_file():
     data = request.json
     file_name = data.get('file_name')
     tags = data.get('tags', [])
-    
-    if not file_name:
-        return jsonify({'error': 'No file specified'}), 400
-    
-    if not tags:
-        return jsonify({'error': 'No valid tags selected'}), 400
-    
-    # Find the document
+
+    if not file_name or not tags:
+        return jsonify({'error': 'Missing file or tags'}), 400
+
     document = next((doc for doc in documents if doc['name'] == file_name), None)
-    
     if not document:
         return jsonify({'error': 'Document not found'}), 404
-    
-    # Generate a mock analysis report based on the tags
-    report = generate_mock_report(file_name, tags)
-    
-    # Save the report to output folder
+
+    try:
+        report = total_reduce(document['path'])
+    except Exception as e:
+        traceback.print_exc()
+        return jsonify({'error': f'Analysis failed: {str(e)}'}), 500
+
     output_filename = generate_output_filename(file_name, tags)
     output_path = os.path.join(app.config['OUTPUT_FOLDER'], output_filename)
-    
+
     try:
         with open(output_path, 'w', encoding='utf-8') as f:
             f.write(report)
-        print(f"Saved analysis to: {output_path}")
     except Exception as e:
-        print(f"Error saving analysis: {str(e)}")
         return jsonify({'error': 'Failed to save analysis'}), 500
-    
+
+    try:
+        pdf_path = create_pdf(output_path)
+        print(f"[DEBUG] PDF created at: {pdf_path}")
+    except Exception as e:
+        return jsonify({'error': f'PDF generation failed: {str(e)}'}), 500
+
     return jsonify({
         'success': True,
         'file_name': file_name,
         'tags': tags,
         'report': report,
-        'output_file': output_filename
+        'output_file': output_filename[:-3]+'.pdf',
+        'pdf_file': os.path.basename(pdf_path)
     })
 
-def generate_mock_report(file_name, tags):
-    """Generate a mock analysis report based on the file name and tags."""
-    report = f"Analysis Report for {file_name}\n\n"
-    report += f"Tags: {', '.join(tags)}\n\n"
+# def generate_mock_report(file_name, tags):
+#     """Generate a mock analysis report based on the file name and tags."""
+#     report = f"Analysis Report for {file_name}\n\n"
+#     report += f"Tags: {', '.join(tags)}\n\n"
     
-    report += "Compliance Checks:\n"
-    report += "----------------\n"
+#     report += "Compliance Checks:\n"
+#     report += "----------------\n"
     
-    # Add some mock compliance checks based on tags
-    if 'GDPR' in tags:
-        report += "- GDPR compliance: PASSED\n"
-        report += "  - Data protection measures are in place\n"
-        report += "  - Privacy notices are properly formatted\n"
+#     # Add some mock compliance checks based on tags
+#     if 'GDPR' in tags:
+#         report += "- GDPR compliance: PASSED\n"
+#         report += "  - Data protection measures are in place\n"
+#         report += "  - Privacy notices are properly formatted\n"
     
-    if 'ESG' in tags:
-        report += "- ESG compliance: PASSED\n"
-        report += "  - Environmental impact assessment completed\n"
-        report += "  - Social responsibility metrics documented\n"
+#     if 'ESG' in tags:
+#         report += "- ESG compliance: PASSED\n"
+#         report += "  - Environmental impact assessment completed\n"
+#         report += "  - Social responsibility metrics documented\n"
     
-    if 'SASB' in tags:
-        report += "- SASB compliance: PASSED\n"
-        report += "  - Industry-specific metrics reported\n"
-        report += "  - Financial impact of sustainability measures documented\n"
+#     if 'SASB' in tags:
+#         report += "- SASB compliance: PASSED\n"
+#         report += "  - Industry-specific metrics reported\n"
+#         report += "  - Financial impact of sustainability measures documented\n"
     
-    if 'HIPAA' in tags:
-        report += "- HIPAA compliance: PASSED\n"
-        report += "  - Patient data protection measures verified\n"
-        report += "  - Security controls are properly implemented\n"
+#     if 'HIPAA' in tags:
+#         report += "- HIPAA compliance: PASSED\n"
+#         report += "  - Patient data protection measures verified\n"
+#         report += "  - Security controls are properly implemented\n"
     
-    if 'FINRA' in tags:
-        report += "- FINRA compliance: PASSED\n"
-        report += "  - Trading practices reviewed\n"
-        report += "  - Customer protection measures verified\n"
+#     if 'FINRA' in tags:
+#         report += "- FINRA compliance: PASSED\n"
+#         report += "  - Trading practices reviewed\n"
+#         report += "  - Customer protection measures verified\n"
     
-    report += "\nNotes:\n"
-    report += "------\n"
-    report += "- This is a mock analysis report for demonstration purposes.\n"
-    report += "- In a real application, this would contain actual analysis results.\n"
-    report += f"- Analysis was performed at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n"
+#     report += "\nNotes:\n"
+#     report += "------\n"
+#     report += "- This is a mock analysis report for demonstration purposes.\n"
+#     report += "- In a real application, this would contain actual analysis results.\n"
+#     report += f"- Analysis was performed at {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}\n"
     
-    return report
+#     return report
+
 
 @app.route('/input_data/<path:filename>')
 def serve_pdf(filename):

@@ -15,7 +15,7 @@ class ESG(BaseLLM):
         self.rag = RAG(config_path=config_path)
         logger.info("ESG initialized.")
         
-    def answer_query(self, query: str) -> str:
+    def answer_query(self, query: str, context) -> str:
         """
         Process a user's ESG query
         """
@@ -25,8 +25,8 @@ class ESG(BaseLLM):
                             "Could you please provide more details regarding your ESG standards question?")
             logger.info("Query too brief; returning clarification prompt.")
             return clarification
-        result = self.rag.answer_query(query, use_esg=True, k=5)
-        context = result.get("context", "")
+        result = self.rag.answer_query(query, doc_type='esg', k=5)
+        # context = result.get("context", "")
         final_prompt = (
             f"{self.system_prompt}\n\n"
             f"Context:\n{context}\n\n"
@@ -44,7 +44,7 @@ class ESG(BaseLLM):
         Process a follow-up question.
         """
         logger.info("Received follow-up question: %s", followup)
-        result = self.rag.answer_query(followup, use_esg=True, k=5)
+        result = self.rag.answer_query(followup, doc_type='esg', k=5)
         answer = result.get("answer", "I'm sorry, I couldn't retrieve ESG information for your follow-up query.")
         logger.info("Follow-up answer: %s", answer)
         return answer
