@@ -13,7 +13,7 @@ class RAG(BaseLLM):
     
     def __init__(self, config_path: str = "config/config.yaml"):
         super().__init__(config_path=config_path)
-        self.system_prompt = self._get_system_prompt("config/prompts/sorcerer_supreme.txt")
+        self.system_prompt = self._get_system_prompt("config/prompts/rag-ai.txt")
         self.esg_vector_db = EsgDB(config_path=config_path)
         self.esg_graph_db = EsgGraphDB(config_path=config_path)
         # TODO: other DB
