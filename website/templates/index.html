@@ -7,6 +7,12 @@
   <link rel="stylesheet" href="{{ url_for('static', filename='index.css') }}">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <style>
+    :root {
+      --primary-bg: #faf6f4;
+      --primary-text: #343b36;
+      --accent: #c6f4d6;
+    }
+  
     .document-header-line {
       display: flex;
       flex-wrap: wrap;
@@ -14,39 +20,39 @@
       align-items: center;
       gap: 1rem;
     }
-
+  
     .document-header-line .document-name {
       flex-grow: 1;
       white-space: nowrap;
       overflow: hidden;
       text-overflow: ellipsis;
     }
-
+  
     .search-controls {
       margin-bottom: 1rem;
     }
-
+  
     .search-box {
       position: relative;
       max-width: 300px;
     }
-
+  
     .search-input {
       width: 100%;
       padding: 0.5rem 2rem 0.5rem 1rem;
-      border: 1px solid #ddd;
+      border: 1px solid rgba(52,59,54,0.4);
       border-radius: 4px;
       font-size: 0.9rem;
     }
-
+  
     .search-icon {
       position: absolute;
       right: 0.75rem;
       top: 50%;
       transform: translateY(-50%);
-      color: #666;
+      color: var(--primary-text);
     }
-
+  
     .pagination {
       display: flex;
       justify-content: center;
@@ -55,39 +61,40 @@
       margin-top: 1rem;
       padding: 1rem 0;
     }
-
+  
     .pagination-btn {
       display: flex;
       align-items: center;
       gap: 0.5rem;
       padding: 0.5rem 1rem;
-      border: 1px solid #ddd;
+      border: 1px solid rgba(52,59,54,0.4);
       border-radius: 4px;
       background: white;
       cursor: pointer;
       transition: all 0.2s;
     }
-
+  
     .pagination-btn:hover:not(:disabled) {
-      background: #f0f0f0;
+      background: #ecf9f2;
     }
-
+  
     .pagination-btn:disabled {
       opacity: 0.5;
       cursor: not-allowed;
     }
-
+  
     .pagination-info {
       font-size: 0.9rem;
-      color: #666;
+      color: var(--primary-text);
     }
   </style>
 </head>
 <body>
   <div class="container">
     <header>
-      <h1><i class="fas fa-shield-alt"></i> CompliantAI</h1>
-      <p>AI-powered document compliance analysis</p>
+      <a href="/analysis" style="text-decoration: none; color: inherit; cursor: pointer;">
+        <h1><i class="fas fa-shield-alt" style="color: #343b36;"></i> Comply.Ai</h1>
+      </a>
     </header>
 
     <main>
@@ -111,7 +118,7 @@
     </main>
 
     <footer>
-      <p>&copy; 2023 CompliantAI. All rights reserved.</p>
+      <p>&copy; 2025 CompliantAI. All rights reserved.</p>
     </footer>
   </div>
 
