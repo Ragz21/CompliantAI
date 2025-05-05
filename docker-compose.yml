@@ -1,0 +1,38 @@
+services:
+  compliantai-application:
+    build: .
+    ports:
+      - "5001:5001"
+    depends_on:
+      - ollama
+      - neo4j
+    environment:
+      - OLLAMA_HOST=http://ollama:11434
+    volumes:
+      - ./input_data:/opt/app/input_data
+      - ./output_data:/opt/app/output_data
+      - ./config:/opt/app/config
+    restart: unless-stopped
+
+  ollama:
+    image: ollama/ollama:latest
+    ports:
+      - "11434:11434"
+    volumes:
+      - ~/.ollama:/root/.ollama
+    # 🔥 REMOVE healthcheck to stop breaking startup
+    restart: unless-stopped
+
+  neo4j:
+    image: neo4j:5.19
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    environment:
+      - NEO4J_AUTH=neo4j/password
+    volumes:
+      - neo4j_data:/data
+    restart: unless-stopped
+
+volumes:
+  neo4j_data:

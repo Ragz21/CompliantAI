@@ -49,27 +49,26 @@ def create_pdf(input_file):
 
     # Wrap content in a LaTeX document
     def wrap_latex(content):
-        return f"""
-                \\documentclass{{article}}
-                \\usepackage[utf8]{{inputenc}}
-                \\usepackage{{enumitem}}
-                \\title{{LLM Analysis Report}}
-                \\date{{\\today}}
-
-                \\begin{{document}}
-
-                \\maketitle
-
-                {content}
-
-                \\end{{document}}
-                """
+        return (
+            "\\documentclass{article}\n"
+            "\\usepackage[utf8]{inputenc}\n"
+            "\\usepackage{enumitem}\n"
+            "\\title{LLM Analysis Report}\n"
+            "\\date{\\today}\n\n"
+            "\\begin{document}\n\n"
+            "\\maketitle\n\n"
+            f"{content}\n\n"
+            "\\end{document}"
+        )
 
     latex_content = wrap_latex(markdown_to_latex(md_text))
 
     # Write LaTeX to .tex file
     with open(tex_path, 'w', encoding='utf-8') as f:
         f.write(latex_content)
+
+    print("Generated LaTeX:")
+    print(latex_content)
 
     # Compile .tex to .pdf
     try:

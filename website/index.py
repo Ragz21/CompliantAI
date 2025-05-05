@@ -3,12 +3,17 @@ import os
 from flask import Flask, render_template, request, jsonify, send_from_directory, session, send_file
 import time
 import json
+import mlflow
 import traceback
 from werkzeug.utils import secure_filename
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 from ans_query import analyze_esg_file, create_pdf
 from datetime import datetime
 from map_reduce_example import total_reduce
+# Set MLflow tracking directory
+mlflow.set_tracking_uri("file://" + os.path.abspath("./mlruns"))
+# Set or create an experiment
+mlflow.set_experiment("CompliantAI-Experiments")
 
 app = Flask(__name__)
 app.secret_key = 'compliant_ai_secret_key'  # For session management
@@ -24,8 +29,12 @@ app.config['OUTPUT_FOLDER'] = OUTPUT_FOLDER
 os.makedirs(UPLOAD_FOLDER, exist_ok=True)
 os.makedirs(OUTPUT_FOLDER, exist_ok=True)
 
-# Store documents in memory (in a real app, this would be a database)
-documents = []
+# Load saved tags if available
+try:
+    with open('website/documents_tags.json') as f:
+        documents = json.load(f)
+except:
+    documents = []
 
 def allowed_file(filename):
     return '.' in filename and filename.rsplit('.', 1)[1].lower() in ALLOWED_EXTENSIONS
@@ -176,10 +185,14 @@ def update_tag():
     if not file_name:
         return jsonify({'error': 'Missing file name'}), 400
     
-    # Find the document and update its tags
     doc = next((doc for doc in documents if doc['name'] == file_name), None)
     if doc:
         doc['tags'] = tags
+        
+        # NEW: Save tags to disk
+        with open('website/documents_tags.json', 'w') as f:
+            json.dump(documents, f, indent=2)
+        
         return jsonify({
             'success': True,
             'message': f'Tags updated for {file_name}',
@@ -187,6 +200,7 @@ def update_tag():
         })
     
     return jsonify({'error': 'Document not found'}), 404
+
 
 # @app.route('/analyze', methods=['POST'])
 # def analyze_file():
@@ -233,6 +247,7 @@ def update_tag():
 #         'pdf_file_url': f"/output_data/{os.path.basename(pdf_path)}"
 #     })
 
+
 @app.route('/analyze', methods=['POST'])
 def analyze_file():
     data = request.json
@@ -264,6 +279,19 @@ def analyze_file():
             f.write(report)
         
         try:
+            # MLflow tracking
+            with mlflow.start_run():
+                # Log parameters
+                mlflow.log_param("file_name", file_name)
+                mlflow.log_param("tags", ", ".join(tags))
+                mlflow.log_param("model_type", "Meta-Llama-3-8B-Instruct")
+                mlflow.log_param("embedding_dim", 4096)
+
+                # Log artifacts
+                mlflow.log_artifacts("output_data/")
+                mlflow.log_artifacts("models/")
+                mlflow.log_artifacts("core/db/vector_db/")
+
             # Create PDF
             print(f"Creating PDF from: {txt_path}")
             pdf_path = create_pdf(txt_path)
@@ -297,6 +325,8 @@ def analyze_file():
         print(error_msg)
         traceback.print_exc()
         return jsonify({'error': error_msg}), 500
+
+
 
 # def generate_mock_report(file_name, tags):
 #     """Generate a mock analysis report based on the file name and tags."""
@@ -536,4 +566,4 @@ def analysis_page():
     return render_template('analysis.html')
 
 if __name__ == '__main__':
-    app.run(host="0.0.0.0", port=5001,debug=True)
+    app.run(host="0.0.0.0", port=5005,debug=True)

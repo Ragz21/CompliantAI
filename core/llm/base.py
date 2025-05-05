@@ -34,7 +34,7 @@ class BaseLLM:
         # print(self.config)
         
         models_config = self.config.get('models', {})
-        host = models_config.get('endpoint', 'http://localhost:11434')
+        host = os.getenv("OLLAMA_HOST") or models_config.get("endpoint", "http://localhost:11434")
         self.client = ollama.Client(host=host)
         
         self.model_name = models_config.get('default', 'llama3:8b')
