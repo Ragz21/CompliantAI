@@ -1,0 +1,10 @@
+stages:
+  train:
+    cmd: python website/index.py
+    deps:
+      - website/index.py
+      - input_data/
+    outs:
+      - output_data/
+      - models/
+      - core/db/vector_db/

@@ -1,0 +1,30 @@
+schema: '2.0'
+stages:
+  train:
+    cmd: python website/index.py
+    deps:
+    - path: input_data/
+      hash: md5
+      md5: f662c40735baef021c8a78a17a000f72.dir
+      size: 14447430
+      nfiles: 2
+    - path: website/index.py
+      hash: md5
+      md5: cc55eca52de0db0f8730e57c28692ba6
+      size: 19691
+    outs:
+    - path: core/db/vector_db/
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+    - path: models/
+      hash: md5
+      md5: d751713988987e9331980363e24189ce.dir
+      size: 0
+      nfiles: 0
+    - path: output_data/
+      hash: md5
+      md5: 6c8cd1af8b819a365f8c6f5e71b68485.dir
+      size: 457590
+      nfiles: 25

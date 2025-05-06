@@ -1,0 +1,17 @@
+FROM ubuntu:22.04
+
+# Basic deps
+RUN apt-get update && apt-get install -y curl gnupg ca-certificates software-properties-common
+
+# Add Ollama's repository
+RUN curl -fsSL https://ollama.com/install.sh | bash
+
+# Create models directory mount point
+RUN mkdir -p /root/.ollama/models
+
+# Pull your embedding model at build time
+RUN ollama pull nomic-embed-text || true
+
+EXPOSE 11434
+
+CMD ["ollama", "serve"]

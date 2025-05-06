@@ -51,6 +51,13 @@ coverage.xml
 .pytest_cache/
 cover/
 
+# MLFlow and DVC
+mlruns/
+core/db/vector_db/
+input_data/
+output_data/
+models/
+
 # Translations
 *.mo
 *.pot
@@ -175,3 +182,6 @@ cython_debug/
 
 # .DS_Store
 .DS_Store
+/input_data
+/output_data
+/models
