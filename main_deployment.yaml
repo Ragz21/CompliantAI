@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: compliantai-deployment
+  labels:
+    app: compliantai
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: compliantai
+  template:
+    metadata:
+      labels:
+        app: compliantai
+    spec:
+      containers:
+      - name: compliantai-container
+        #image: gcr.io/<project_id>/compliantai  # uncomment for GKE
+        image: compliantai:latest  # comment for GKE
+        #imagePullPolicy: Always  # uncomment for GKE
+        imagePullPolicy: Never  # comment for GKE
+        ports:
+        - containerPort: 5001
